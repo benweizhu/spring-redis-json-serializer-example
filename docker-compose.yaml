@@ -1,0 +1,12 @@
+version: '3'
+services:
+  redis:
+    image: redis
+    command: ["redis-server", "--appendonly", "yes", "--requirepass", "redis123"]
+    volumes:
+      - redis-data/data
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+volumes:
+  redis-data:
